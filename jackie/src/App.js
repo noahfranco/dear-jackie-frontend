@@ -1,24 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import GoogleMap from "./components/Map.js"; 
+import MakeMemories from "./components/MakeMemories.js"; 
+import SheSaidYes from "./components/SheSaidYes.js"
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Router> 
+     <h2> Dear Jackie </h2> 
+     <div style={{marginBottom: "10px"}}> 
+     <Link to="/makememories"> <div style={{textDecoration: "none", color: "black"}}> Make More Memories </div> </Link>
+    </div>
+     <Route exact path="/" render={props => (
+        <GoogleMap {...props} /> 
+      )} />
+
+    <Route path="/makememories" component={MakeMemories} />
+    <Route path="/shesaidyes" component={SheSaidYes} />
+      </Router>
+      
+     {/* <GoogleMap/>  */}
     </div>
   );
 }
