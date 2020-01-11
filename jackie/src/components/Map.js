@@ -6,6 +6,9 @@ class GoogleMap extends React.Component  {
         location: {
             latitude: 35.1954, 
             longitude: 79.4695
+        },
+        vision: {
+            zoom: 11
         }
     }
 
@@ -15,6 +18,7 @@ render() {
         <div style={{height: "100vh", width: "100%"}}> 
             <Map
             google={this.props.location}
+            vision={this.props.zoom}
             > 
 
 
@@ -27,5 +31,5 @@ render() {
 }
 
 export default GoogleApiWrapper({
-    apiKey: ""
+    apiKey: "AIzaSyBS2KsFMf2O7g8Te1eaCQGenQYNMFaB2go"
 })(GoogleMap)
