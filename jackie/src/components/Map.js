@@ -1,20 +1,24 @@
 import React from "react"; 
-import GoogleMapReact from "google-map-react";
+import {Map, GoogleApiWrapper} from "google-maps-react";
 
-class Map extends React.Component  {
+class GoogleMap extends React.Component  {
     static latAndLong = {
         location: {
             latitude: 35.1954, 
             longitude: 79.4695
-        },
-        zoom: 11
+        }
     }
 
 render() {
     return (
 
-        <div> 
-        
+        <div style={{height: "100vh", width: "100%"}}> 
+            <Map
+            google={this.props.location}
+            > 
+
+
+            </Map>
 
         </div>
 
@@ -22,4 +26,4 @@ render() {
     }
 }
 
-export default Map; 
+export default GoogleMap; 
