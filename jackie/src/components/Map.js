@@ -19,12 +19,12 @@ render() {
 
         <div style={{height: "100%", width: "100%"}}> 
             <Map
-            google={this.props.location}
+            google={this.props.google}
+            initialCenter={this.props.location}
             vision={this.props.zoom}
-            > 
-
-
-            </Map>
+            // zoom={11}
+            // initialCenter={{lat: 35.1954, lng: 79.4695 }}
+            />           
 
         </div>
 
