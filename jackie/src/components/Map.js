@@ -26,4 +26,6 @@ render() {
     }
 }
 
-export default GoogleMap; 
+export default GoogleApiWrapper({
+    apiKey: ""
+})(GoogleMap)
