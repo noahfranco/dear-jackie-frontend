@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import GoogleMap from "./components/Map.js"; 
 import MakeMemories from "./components/MakeMemories.js"; 
+import SheSaidYes from "./components/SheSaidYes.js"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       )} />
 
     <Route path="/makememories" component={MakeMemories} />
+    <Route path="/shesaidyes" component={SheSaidYes} />
       </Router>
       
      {/* <GoogleMap/>  */}
