@@ -70,11 +70,11 @@ class GoogleMap extends React.Component  {
     }
 
     // function to pop up component on map 
-    popUpToggle(event) {
-        event.preventDefault()
+    popUpToggle() {
         this.setState({
             popUp: !this.state.popUp
         })
+        console.log("toggle is working")
     } 
 
     locationFunction = () => {
@@ -82,7 +82,7 @@ class GoogleMap extends React.Component  {
             return <Marker key={index} id={index} position={{
                 lat: location.lat,
                 lng: location.lng
-            }} onClick={() => this.popUpToggle.bind(this)} />
+            }} onClick={this.popUpToggle.bind(this)} />
         })
     }
 
@@ -101,7 +101,6 @@ render() {
 
             {this.state.popUp ?
             <MarkerPopUp 
-            closePopup={this.state.bind(this)}
             />
             : null
             }
