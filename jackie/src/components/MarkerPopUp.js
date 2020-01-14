@@ -14,3 +14,5 @@ class MarkerPopUp extends React.Component {
         )
     }
 }
+
+export default MarkerPopUp; 

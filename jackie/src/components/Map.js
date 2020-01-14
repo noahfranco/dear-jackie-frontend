@@ -1,5 +1,6 @@
 import React from "react"; 
-import {Map, GoogleApiWrapper, Marker} from "google-maps-react";
+import {Map, GoogleApiWrapper, Marker} from "google-maps-react"; 
+import MarkerPopUp from "./MarkerPopUp.js"; 
 
 class GoogleMap extends React.Component  {
     constructor(props) {
@@ -61,19 +62,31 @@ class GoogleMap extends React.Component  {
                     lat: 35.171700,
                     lng: -79.423200
                 } 
-            ]
+            ],
+
+            // popUp component state
+            popUp: false 
         }
     }
+
+    // function to pop up component on map 
+    popUpToggle(event) {
+        event.preventDefault()
+        this.setState({
+            popUp: !this.state.popUp
+        })
+    } 
 
     locationFunction = () => {
         return this.state.locations.map((location, index) => {
             return <Marker key={index} id={index} position={{
                 lat: location.lat,
                 lng: location.lng
-            }} onClick={() => console.log("You clicked me!")} />
+            }} onClick={() => this.popUpToggle.bind(this)} />
         })
     }
 
+    // console.log("You clicked me!")
 
 render() {
     return (
@@ -85,6 +98,13 @@ render() {
             zoom={6}
             >  
             {this.locationFunction()}
+
+            {this.state.popUp ?
+            <MarkerPopUp 
+            closePopup={this.state.bind(this)}
+            />
+            : null
+            }
             
             </Map>
               
