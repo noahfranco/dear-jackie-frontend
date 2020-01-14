@@ -9,7 +9,7 @@ class SheSaidYes extends React.Component {
             <div style={{marginTop: "100px"}}> 
             <h1> Jackie + Noah </h1>
             <div className="animation"> 
-            <h2 style={{color: "red", fontSize: "180px"}}> ♥️ </h2>  
+            <span role="img" style={{color: "red", fontSize: "180px"}}> ♥️ </span>  
             </div> 
             </div> 
             </>

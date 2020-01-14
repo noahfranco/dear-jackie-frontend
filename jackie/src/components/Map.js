@@ -85,6 +85,7 @@ render() {
             zoom={6}
             >  
             {this.locationFunction()}
+            
             </Map>
               
         </div>
