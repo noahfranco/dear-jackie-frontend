@@ -1,6 +1,7 @@
 import React, {useEffect} from "react"; 
 import {Map, GoogleApiWrapper, Marker} from "google-maps-react"; 
-import axios from "axios"; 
+import NavBar from "./NavBar.js"; 
+// import axios from "axios"; 
 
 class GoogleMap extends React.Component  {
     constructor(props) {
@@ -66,18 +67,19 @@ class GoogleMap extends React.Component  {
         }
     }
 
+// Set up once I get data base running
+    // componentDidMount() {
+        
+    // }
 
-    componentDidMount() {
-        // mount useEffect function to render on screen
-    }
-
-    getMarker = () => {
-        useEffect(() => {
-            axios
-            .get()
+    // getMarker = () => {
+    //     useEffect(() => {
+    //         axios
+    //         .get()
             
-        }, [])
-    }
+    //     }, [])
+    // }
+// Set up once I get data base running
 
 
     locationFunction = () => {
@@ -94,6 +96,7 @@ render() {
     return (
 
         <div style={{height: "100%", width: "100%"}}> 
+            <NavBar />
             <Map
             google={this.props.google}
             initialCenter={{lat: 35.782169, lng: -80.793457}}

@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import GoogleMap from "./components/Map.js"; 
@@ -8,12 +7,12 @@ import SheSaidYes from "./components/SheSaidYes.js"
 
 function App() {
   return (
-    <div className="App">
+    <div>
      <Router> 
-     <h2> Dear Jackie </h2> 
+     {/* <h2> Dear Jackie </h2> 
      <div style={{marginBottom: "10px"}}> 
      <Link to="/makememories"> <div style={{textDecoration: "none", color: "black"}}> Make More Memories </div> </Link>
-    </div>
+    </div> */}
      <Route exact path="/" render={props => (
         <GoogleMap {...props} /> 
       )} />
