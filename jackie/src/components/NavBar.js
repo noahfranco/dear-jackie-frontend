@@ -8,6 +8,7 @@ class Navbar extends React.Component {
     return (
       <Menu>
          <h2 style={{frontWeight: "900px", color: "#F699CD"}}> Dear Jackie </h2> 
+
         <a className="menu-item" href="https://jackie.noahfranco.now.sh/"> 
           Home
         </a>
