@@ -1,5 +1,6 @@
 import React from "react"; 
-import {Map, GoogleApiWrapper, Marker} from "google-maps-react";
+import {Map, GoogleApiWrapper, Marker} from "google-maps-react"; 
+// import MapModal from "./MapModal.js";  
 
 class GoogleMap extends React.Component  {
     constructor(props) {
@@ -61,9 +62,24 @@ class GoogleMap extends React.Component  {
                     lat: 35.171700,
                     lng: -79.423200
                 } 
-            ]
+            ],
         }
     }
+
+// Set up once I get data base running
+    // componentDidMount() {
+        
+    // }
+
+    // getMarker = () => {
+    //     useEffect(() => {
+    //         axios
+    //         .get()
+            
+    //     }, [])
+    // }
+// Set up once I get data base running
+
 
     locationFunction = () => {
         return this.state.locations.map((location, index) => {
@@ -79,12 +95,14 @@ render() {
     return (
 
         <div style={{height: "100%", width: "100%"}}> 
+            {/* <MapModal /> */}
             <Map
             google={this.props.google}
             initialCenter={{lat: 35.782169, lng: -80.793457}}
             zoom={6}
             >  
             {this.locationFunction()}
+            
             </Map>
               
         </div>

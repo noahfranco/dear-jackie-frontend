@@ -1,29 +1,29 @@
 import React from 'react';
-import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
 import GoogleMap from "./components/Map.js"; 
 import MakeMemories from "./components/MakeMemories.js"; 
 import SheSaidYes from "./components/SheSaidYes.js"
+import NavBar from "./components/NavBar.js"; 
+import MapComponent from "./components/Map.js"; 
 
 function App() {
   return (
-    <div className="App">
+    <>
+    <NavBar />
+    <div>
      <Router> 
-     <h2> Dear Jackie </h2> 
-     <div style={{marginBottom: "10px"}}> 
-     <Link to="/makememories"> <div style={{textDecoration: "none", color: "black"}}> Make More Memories </div> </Link>
-    </div>
      <Route exact path="/" render={props => (
         <GoogleMap {...props} /> 
       )} />
 
     <Route path="/makememories" component={MakeMemories} />
     <Route path="/shesaidyes" component={SheSaidYes} />
+    <Route path="/map" component={MapComponent} />
       </Router>
       
      {/* <GoogleMap/>  */}
     </div>
+    </>
   );
 }
 
