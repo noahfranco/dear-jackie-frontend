@@ -7,22 +7,20 @@ class Navbar extends React.Component {
   render() {
     return (
       <Menu>
-        <a className="menu-item" href="">
-          HOME
+         <h2 style={{frontWeight: "900px", color: "#F699CD"}}> Dear Jackie </h2> 
+        <a className="menu-item" href="http://localhost:3000/"> 
+          Home
         </a>
-        <a className="menu-item" href="">
-          ABOUT
+        <a className="menu-item" href="http://localhost:3000/makememories"> 
+          Make More Memories        
         </a>
-        <a className="menu-item" href="">
-          REUNION SERVICE
-        </a>
+
       </Menu>
     )
   }
 }
 
-export default Navbar; 
+export default Navbar;  
 
-
-    
-  
+// https://jackie.noahfranco.now.sh/
+// https://jackie.noahfranco.now.sh/makememories

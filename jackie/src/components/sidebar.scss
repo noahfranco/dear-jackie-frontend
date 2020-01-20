@@ -89,7 +89,7 @@ body {
 }
 
 .menu-item {
-  font-weight: 600;
+  font-weight: 500;
   font-style: normal;
   font-size: 18px;
   letter-spacing: 1.2px;
@@ -99,6 +99,7 @@ body {
   color: rgba(255, 255, 255, 0.9);
   font-family: ProximaNova;
   display: block;
+  padding-top: 20px; 
   @media only screen and (max-width: 500px) {
     width: 50vw;
     margin: 0 8vw;
@@ -109,28 +110,10 @@ body {
   }
   &:hover {
     color: white;
-  }
-  &:last-child {
-    background-color: #fff;
-    -moz-osx-font-smoothing: auto;
-    -webkit-font-smoothing: subpixel-antialiased;
-    color: #000;
-    -webkit-transition: background-color 0.1s 0s ease-in-out,
-      color 0.1s 0s ease-in-out;
-    -moz-transition: background-color 0.1s 0s ease-in-out,
-      color 0.1s 0s ease-in-out;
-    -ms-transition: background-color 0.1s 0s ease-in-out,
-      color 0.1s 0s ease-in-out;
-    -o-transition: background-color 0.1s 0s ease-in-out,
-      color 0.1s 0s ease-in-out;
-    transition: background-color 0.1s 0s ease-in-out, color 0.1s 0s ease-in-out;
-    padding: 15px 30px;
-
-    &:hover {
-      background: darken($color: rgba(214, 214, 214, 0.6), $amount: 1%);
-    }
+    background: darken($color: rgba(214, 214, 214, 0.6), $amount: 1%);
   }
 }
+
 
 // Styling for Search Drop Down! :)
 .burger-bar {
@@ -152,11 +135,11 @@ body {
   }
 }
 .burger-dropdown {
-  // display: none;
-  // position: absolute;
-  // background-color: #ffffff;
-  // z-index: 99;
-  // min-width: 260px;
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  z-index: 99;
+  min-width: 260px;
 
   .not-last-child {
     display: none;

@@ -1,7 +1,6 @@
-import React, {useEffect} from "react"; 
+import React from "react"; 
 import {Map, GoogleApiWrapper, Marker} from "google-maps-react"; 
-import NavBar from "./NavBar.js"; 
-// import axios from "axios"; 
+// import MapModal from "./MapModal.js";  
 
 class GoogleMap extends React.Component  {
     constructor(props) {
@@ -96,7 +95,7 @@ render() {
     return (
 
         <div style={{height: "100%", width: "100%"}}> 
-            <NavBar />
+            {/* <MapModal /> */}
             <Map
             google={this.props.google}
             initialCenter={{lat: 35.782169, lng: -80.793457}}
