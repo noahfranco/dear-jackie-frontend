@@ -1,0 +1,51 @@
+.b-color {
+    background: white;
+    display: flex; 
+    flex-direction: column; 
+    align-content: center;   
+}
+
+.wrap-button1 {
+    padding: 20px;  
+    display: flex; 
+    justify-content: center; 
+}
+
+.yes-button {
+    font-size: 70px;
+    background: #F699CD; 
+    border-radius: 15px;
+    border: none;
+    -webkit-box-shadow: 6px 6px 10px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 6px 10px -3px rgba(0,0,0,0.75);
+    box-shadow: 6px 6px 10px -3px rgba(0,0,0,0.75);  
+}
+
+.no-button {
+    font-size: 30px; 
+    background: #F699CD;
+    border-radius: 10px; 
+    border: none;
+    -webkit-box-shadow: 6px 6px 10px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 6px 10px -3px rgba(0,0,0,0.75);
+    box-shadow: 6px 6px 10px -3px rgba(0,0,0,0.75);  
+}
+
+.title {
+   font-variant: small-caps; 
+   font-size: 30px; 
+   margin-top: 90px; 
+}
+
+/* She said yes component styles */
+.together{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.center {
+    margin-top: 200px; 
+}
+
