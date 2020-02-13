@@ -28,6 +28,7 @@ const GoogleMap = props =>  {
     }, [])
 
    
+    
     const locationFunction = () => {
         console.log(locations)
         return locations.map((location, index) => {
