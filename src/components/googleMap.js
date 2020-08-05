@@ -1,85 +1,84 @@
-import React, {useEffect, useState} from "react"; 
-import {Map, GoogleApiWrapper, Marker} from "google-maps-react"; 
-import axios from "axios"
-// import MapModal from "./MapModal.js"; 
+import React, { Component } from "react";
+import { Map, GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
+// import MapModal from "./MapModal.js";
 
+const mapStyle = {
+  width: "100%",
+  height: "100%",
+};
 
-const GoogleMap = props =>  {
+// this component ininitilze the google map onto our application
+class GoogleMap extends Component {
+  state = {
+    showInfoWindow: false,
+    activeMarker: {},
+    markerInfo: {},
+    title: "name of event",
+  };
 
-    const [locations, setLocation] = useState([
-        {
-            id: 1, 
-            lat: [],
-            lng: []
-        }
-    ])
+  // funciton that allows user to click on marker a see discription
+  markerClick = (props, marker, e) =>
+    this.setState({
+      markerInfo: props,
+      activeMarker: marker,
+      showInfoWindow: true,
+    });
 
-
-    useEffect(() => {
-        axios
-        .get("http://localhost:5000/api/event/getMarker", locations)
-        .then(res => {
-            console.log("Data from useEffect on Map.js file", res)
-            setLocation(res.data)
-        })
-        .catch(error => {
-            console.log(error)
-        })
-    }, [])
-
-   
-    
-    const locationFunction = () => {
-        console.log(locations)
-        return locations.map((location, index) => {
-            return <Marker key={index} id={index} position={{
-                lat: location.lat,
-                lng: location.lng
-            }} onClick={() => console.log("You clicked me!")} />
-        })
+  // closes the marker window and sets the discription pop up back to false
+  unClick = (prop) => {
+    if (this.state.showInfoWindow) {
+      this.setState({
+        showInfoWindow: false,
+        activeMarker: null,
+      });
     }
+  };
 
+  render() {
     return (
-
-        <div style={{height: "100%", width: "100%"}}> 
-            {/* <MapModal /> */}
-            <Map
-            google={props.google}
-            initialCenter={{lat: 35.782169, lng: -80.793457}}
-            zoom={6}
-            >  
-
-            {locationFunction()}
-            
-            </Map>
-              
-        </div>
-
-        )
-    }
+      <div>
+        <Map
+          google={this.props.google}
+          zoom={7}
+          style={mapStyle}
+          initialCenter={{
+            lat: 35.782169,
+            lng: -80.793457,
+          }}
+        >
+          <Marker
+            onClick={this.markerClick}
+            // event discription here
+            name={"name of menory"}
+          />
+          <InfoWindow
+            marker={this.state.activeMarker}
+            visible={this.state.showInfoWindow}
+            unClick={this.unClick}
+          >
+            <div>
+              <h4> {this.state.title} </h4>
+            </div>
+          </InfoWindow>
+        </Map>
+      </div>
+    );
+  }
+}
 
 export default GoogleApiWrapper({
-    apiKey: "AIzaSyBS2KsFMf2O7g8Te1eaCQGenQYNMFaB2go"
-})(GoogleMap)
+  apiKey: "AIzaSyBS2KsFMf2O7g8Te1eaCQGenQYNMFaB2go",
+})(GoogleMap);
 
-
-
-
-
-
-
-
-
-
-
-
+// export default GoogleApiWrapper((props) => ({
+//   apiKey: props.apiKey,
+// }))(GoogleMap);
 
 // Class Component
 
-
 // class GoogleMap extends React.Component  {
 //     constructor(props) {
-//         super(props); 
+//         super(props);
 //         this.state = {
 //             locations: [
 //                 {
@@ -89,18 +88,18 @@ export default GoogleApiWrapper({
 //                 // // First place we ever met in person
 //                 // {
 //                 //     lat: 35.357250,
-//                 //     lng: -79.798050 
+//                 //     lng: -79.798050
 //                 // },
 //                 // // Mall where we spent some time together
 //                 // {
-//                 //     lat: 35.699140, 
+//                 //     lat: 35.699140,
 //                 //     lng: -79.798050
 //                 // },
-//                 // // Park we went to play soccer at 
+//                 // // Park we went to play soccer at
 //                 // {
-//                 //     lat: 35.355970, 
+//                 //     lat: 35.355970,
 //                 //     lng: -79.785600
-//                 // }, 
+//                 // },
 //                 // // Place where we went and got ice cream
 //                 // {
 //                 //     lat: 35.300980,
@@ -125,8 +124,8 @@ export default GoogleApiWrapper({
 //                 // {
 //                 //     lat: 35.251560,
 //                 //     lng: -80.737660
-//                 // }, 
-//                 // // Went to TJ-Max 
+//                 // },
+//                 // // Went to TJ-Max
 //                 // {
 //                 //     lat: 35.157890,
 //                 //     lng: -79.420410
@@ -140,7 +139,7 @@ export default GoogleApiWrapper({
 //                 // {
 //                 //     lat: 35.171700,
 //                 //     lng: -79.423200
-//                 // } 
+//                 // }
 //             ],
 //         }
 //     }
@@ -163,33 +162,29 @@ export default GoogleApiWrapper({
 //     }, [])
 // }
 
-   
-
-
-    // locationFunction = () => {
-    //     return this.state.locations.map((location, index) => {
-    //         return <Marker key={index} id={index} position={{
-    //             lat: location.lat,
-    //             lng: location.lng
-    //         }} onClick={() => console.log("You clicked me!")} />
-    //     })
-    // }
-
+// locationFunction = () => {
+//     return this.state.locations.map((location, index) => {
+//         return <Marker key={index} id={index} position={{
+//             lat: location.lat,
+//             lng: location.lng
+//         }} onClick={() => console.log("You clicked me!")} />
+//     })
+// }
 
 // render() {
 //     return (
 
-//         <div style={{height: "100%", width: "100%"}}> 
+//         <div style={{height: "100%", width: "100%"}}>
 //             {/* <MapModal /> */}
 //             <Map
 //             google={this.props.google}
 //             initialCenter={{lat: 35.782169, lng: -80.793457}}
 //             zoom={6}
-//             >  
+//             >
 //             {this.locationFunction()}
-            
+
 //             </Map>
-              
+
 //         </div>
 
 //         )
