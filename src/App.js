@@ -20,8 +20,6 @@ function App() {
           <Route path="/map" component={MapComponent} />
           <Route path="/viewdata" component={ViewData} />
         </Router>
-
-        {/* <GoogleMap /> */}
       </div>
     </>
   );
