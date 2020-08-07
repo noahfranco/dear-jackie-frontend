@@ -1,12 +1,29 @@
-import React, { useEffect } from "react";
-import axios from "axios";
+import React, { Component } from "react";
+import viewDataAction from "../redux/actions/viewDataAction.js";
+import { connect } from "react-redux";
 
-class viewData extends React.Component {
+class viewData extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: "",
+      date: "",
+      description: "",
+      longitude: "",
+      latitude: "",
+    };
+  }
   // set up state to accept JSON object from postData componenet
 
-  // get request to get JSON object
+  // create a function to set set the our action to the state in the component
+  handleData = (event) => {
+    event.preventDefault();
+    this.props.viewDataAction(this.state);
+    // console.log(this.state);
+  };
 
   render() {
+    console.log(this.state);
     return (
       <div>
         <h4> View Caard Compoenent </h4>
@@ -16,4 +33,10 @@ class viewData extends React.Component {
   }
 }
 
-export default viewData;
+const mapStateToProps = (state) => {
+  return {
+    card: state.card,
+  };
+};
+
+export default connect(mapStateToProps, { viewDataAction })(viewData);
