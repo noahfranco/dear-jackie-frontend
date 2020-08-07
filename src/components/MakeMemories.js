@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
+import makeMemoriesAction from "../redux/actions/makeMemoriesAction.js";
+import { connect } from "react-redux";
 
 class MakeMemories extends Component {
   constructor(props) {
@@ -13,29 +14,28 @@ class MakeMemories extends Component {
     };
   }
 
-  handleChange() {
-    axios
-      // call the get API from database and assign dynamic state
-      .post("http://localhost:5000/api/event/marker")
-      .then((res) => {
-        console.log("our data", res.state);
-        this.setState(res.state);
-      })
-      .catch((error) => {
-        console.log({ message: "hit catch" }, error);
-      }, []);
-  }
-
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
-    this.props.onSubmit(this.state);
-  }
+    this.props.makeMemoriesAction(this.state);
+    console.log(this.state);
+    console.log("clicked");
+    this.props.history.push("/viewdata");
+  };
+
+  handleChange = (event) => {
+    console.log(event);
+    this.setState({
+      ...this.state,
+      [event.target.name]: event.target.value,
+    });
+  };
 
   render() {
+    // console.log(this.state);
     return (
       <div>
         <h4> Make Memories </h4>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <input
             placeholder="title"
             name="title"
@@ -45,7 +45,7 @@ class MakeMemories extends Component {
           />
           <input
             placeholder="data"
-            name="data"
+            name="date"
             type="text"
             value={this.state.date}
             onChange={this.handleChange}
@@ -72,7 +72,10 @@ class MakeMemories extends Component {
             onChange={this.handleChange}
           />
           <div>
-            <button type="submit"> Submit </button>
+            <button type="submit" onClick={this.handleSubmit}>
+              {" "}
+              Submit{" "}
+            </button>
           </div>
         </form>
       </div>
@@ -80,5 +83,10 @@ class MakeMemories extends Component {
   }
 }
 
-// bind state here from our actions compoenet
-export default MakeMemories;
+// bind our redux state from the store to our actions state so we can pass it through this component
+const mapStateToProps = (state) => {
+  return {
+    data: state.data,
+  };
+};
+export default connect(mapStateToProps, { makeMemoriesAction })(MakeMemories);

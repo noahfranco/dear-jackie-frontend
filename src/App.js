@@ -21,7 +21,7 @@ function App() {
           <Route path="/viewdata" component={ViewData} />
         </Router>
 
-        <GoogleMap />
+        {/* <GoogleMap /> */}
       </div>
     </>
   );
