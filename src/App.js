@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import GoogleMap from "./components/googleMap.js";
-import MakeMemories from "./components/MakeMemories.js";
 import SheSaidYes from "./components/SheSaidYes.js";
 import NavBar from "./components/NavBar.js";
 import MapComponent from "./components/googleMap.js";
-import ViewData from "./components/viewData.js"
+import ViewData from "./components/viewData.js";
+import MakeMemories from "./components/MakeMemories.js";
 
 function App() {
   return (

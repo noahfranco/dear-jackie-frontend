@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 
 class viewData extends React.Component {
-  // call the get API from database and assign state
+  // set up state to accept JSON object from postData componenet
+
+  // get request to get JSON object
 
   render() {
     return (
