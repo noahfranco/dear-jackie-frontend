@@ -14,6 +14,7 @@ class MakeMemories extends Component {
     };
   }
 
+  // function that calls memorie action where end point is being called 
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.makeMemoriesAction(this.state);
@@ -22,6 +23,7 @@ class MakeMemories extends Component {
     this.props.history.push("/viewdata");
   };
 
+  // funciton keeps track of state change
   handleChange = (event) => {
     console.log(event);
     this.setState({
